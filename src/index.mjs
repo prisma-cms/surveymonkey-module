@@ -1,4 +1,4 @@
 
-import Module from "./modules";
+import Module from './modules'
 
 export default Module

@@ -3,14 +3,14 @@
 import {
   modifyArgs,
   PrismaCmsServer,
-} from "@prisma-cms/server";
+} from '@prisma-cms/server'
 
-import CoreModule from "../";
+import CoreModule from '../'
 
 const coreModule = new CoreModule({
-});
+})
 
-const resolvers = coreModule.getResolvers();
+const resolvers = coreModule.getResolvers()
 
 
 class PrismaCmsServerCustom extends PrismaCmsServer {
@@ -32,9 +32,7 @@ class PrismaCmsServerCustom extends PrismaCmsServer {
 
 
 const startServer = function (options) {
-
-  return new PrismaCmsServerCustom(options).startServer();
-
+  return new PrismaCmsServerCustom(options).startServer()
 }
 
 
@@ -45,6 +43,6 @@ startServer({
     modifyArgs,
     resolvers,
   },
-});
+})
 
 
