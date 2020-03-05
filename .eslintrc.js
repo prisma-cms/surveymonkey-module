@@ -20,5 +20,6 @@ module.exports = {
     "semi": "off",
     "quotes": "off",
     "brace-style": "off",
+    "padded-blocks": "off",
   }
 }

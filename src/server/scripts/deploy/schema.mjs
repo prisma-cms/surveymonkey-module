@@ -8,6 +8,19 @@ import path from 'path';
 import chalk from "chalk";
  
 
+export class CoreModuleCustom extends CoreModule {
+
+  constructor(options) {
+
+    super(options);
+
+    this.mergeModules([
+    ]);
+
+  }
+
+}
+
 export const generateSchema = function (schemaType) {
 
   let result;
@@ -18,7 +31,7 @@ export const generateSchema = function (schemaType) {
     const basedir = path.join(path.dirname(moduleURL.pathname), "/../../../", "schema/")
 
 
-    result = prismaGenerateSchema(schemaType, new CoreModule(), basedir);
+    result = prismaGenerateSchema(schemaType, new CoreModuleCustom(), basedir);
   }
   catch (error) {
 

@@ -79,8 +79,8 @@ class Module extends PrismaModule {
 
     const {
       // Query,
-      // Mutation,
-      // Subscription,
+      Mutation,
+      Subscription,
       ...other
     } = super.getResolvers();
 

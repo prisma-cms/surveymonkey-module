@@ -5,9 +5,9 @@ import {
   PrismaCmsServer,
 } from '@prisma-cms/server'
 
-import CoreModule from '../'
+import { CoreModuleCustom } from './scripts/deploy/schema.mjs'
 
-const coreModule = new CoreModule({
+const coreModule = new CoreModuleCustom({
 })
 
 const resolvers = coreModule.getResolvers()
