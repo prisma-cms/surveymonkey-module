@@ -13,8 +13,6 @@ const moduleURL = new URL(import.meta.url);
 
 const __dirname = path.dirname(moduleURL.pathname);
 
-const { createWriteStream, unlinkSync } = fs;
-
 const { fileLoader, mergeTypes } = MergeSchema
 
 

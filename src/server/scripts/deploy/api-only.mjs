@@ -1,8 +1,8 @@
 
-import { 
+import {
   buildApiSchema,
-} from "./"
+} from "./";
 
-import { generateSchema } from "./schema"
+import { generateSchema } from "./schema";
 
 buildApiSchema(generateSchema);

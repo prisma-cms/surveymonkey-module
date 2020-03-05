@@ -32,15 +32,15 @@ services:
     volumes:
       # Can set another path 
       - mysql:/var/lib/mysql
-    networks:
-      default:
-        ipv4_address: 172.24.0.20
+    # networks:
+    #   default:
+    #     ipv4_address: 172.24.0.20
 volumes:
   mysql:
 
 networks:
   default:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 172.24.0.0/16
+    # ipam:
+    #   config:
+    #     - subnet: 172.24.0.0/16
