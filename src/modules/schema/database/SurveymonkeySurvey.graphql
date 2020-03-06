@@ -1,0 +1,27 @@
+
+type SurveymonkeySurvey {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  """
+    Внешний ключ
+  """
+  externalKey: ID @unique
+
+  name: String
+  nickname: String
+  href: String
+
+  # language: String
+  # folder_id: ID
+  # category: String
+  # is_owner: Boolean
+  # footer: Boolean
+  # analyze_url: String
+  # edit_url: String
+  # collect_url: String
+
+  Collectors: [SurveymonkeyCollector!]! @relation(onDelete: CASCADE)
+  Webhooks: [SurveymonkeySurveyWebhook!]! @relation(name: "SurveymonkeySurveyWebhooks" onDelete: CASCADE)
+}

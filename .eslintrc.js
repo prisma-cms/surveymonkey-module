@@ -21,5 +21,9 @@ module.exports = {
     "quotes": "off",
     "brace-style": "off",
     "padded-blocks": "off",
+    "space-before-function-paren": "off",
+    "generator-star-spacing": "off",
+    "no-cond-assign": "off",
+    "camelcase": "off",
   }
 }

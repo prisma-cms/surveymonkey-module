@@ -1,0 +1,38 @@
+
+type SurveymonkeyCollector {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  """
+    Внешний ключ
+  """
+  externalKey: ID @unique
+
+  name: String!
+  hash: ID
+
+  url: String
+  href: String
+
+  status: SurveymonkeyCollectorStatus!
+  type: SurveymonkeyCollectorType!
+  
+  Survey: SurveymonkeySurvey!
+}
+
+enum SurveymonkeyCollectorStatus {
+  New
+  Open
+  Closed
+}
+
+enum SurveymonkeyCollectorType {
+  Sms
+  Weblink
+  Email
+  Mobile_sdk
+  Popup_invitation
+  Embedded_survey
+  Popup_survey
+}

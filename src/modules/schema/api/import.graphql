@@ -1,0 +1,9 @@
+
+type Mutation {
+  surveymonkeyImportSurveys: SurveymonkeyImportSurveysResponse!
+}
+
+type SurveymonkeyImportSurveysResponse {
+  created: Int!
+  updated: Int!
+}

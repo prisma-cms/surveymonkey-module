@@ -1,12 +1,15 @@
 
 import prismaGenerateSchema from "@prisma-cms/prisma-schema";
+import UserModule from "@prisma-cms/user-module";
 
-import CoreModule from "../../../";
- 
+import CoreModule, {
+  modules,
+} from "../../../";
+
 
 import path from 'path';
 import chalk from "chalk";
- 
+
 
 export class CoreModuleCustom extends CoreModule {
 
@@ -15,7 +18,8 @@ export class CoreModuleCustom extends CoreModule {
     super(options);
 
     this.mergeModules([
-    ]);
+      UserModule,
+    ].concat(modules));
 
   }
 

@@ -1,0 +1,19 @@
+
+type SurveymonkeySurveyWebhook {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  """
+    Внешний ключ
+  """
+  externalKey: ID @unique
+
+  name: String
+  event_type: String
+  subscription_url: String
+  object_type: String
+  href: String
+  
+  Surveys: [SurveymonkeySurvey!]! @relation(name: "SurveymonkeySurveyWebhooks")
+}

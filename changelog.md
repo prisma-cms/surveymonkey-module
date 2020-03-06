@@ -1,3 +1,7 @@
+1.1.9-alpha
+===============================
+- First release
+
 1.1.8-dev
 ===============================
 - Added custom module definition

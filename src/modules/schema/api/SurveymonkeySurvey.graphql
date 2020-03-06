@@ -1,0 +1,22 @@
+
+type Mutation {
+
+  createSurveymonkeySurveyProcessor(
+    data: SurveymonkeySurveyCreateInput!
+  ): SurveymonkeySurveyResponse!
+
+  updateSurveymonkeySurveyProcessor(
+    where: SurveymonkeySurveyWhereUniqueInput!
+    data: SurveymonkeySurveyUpdateInput!
+  ): SurveymonkeySurveyResponse!
+
+}
+
+
+type SurveymonkeySurveyResponse {
+  success: Boolean!
+  message: String
+  errors: [Error!]!
+  data: SurveymonkeySurvey
+}
+
