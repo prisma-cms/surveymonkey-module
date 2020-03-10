@@ -1,6 +1,8 @@
 
 import Debug from "debug";
 
+import CreateRouter from "./helpers/middleware.mjs";
+
 import Module from './modules'
 
 import SurveymonkeySurveyModule, {
@@ -24,6 +26,8 @@ export const modules = [
 ]
 
 export {
+
+  CreateRouter,
 
   SurveymonkeySurveyModule,
   SurveymonkeySurveyProcessor,

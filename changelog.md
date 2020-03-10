@@ -1,3 +1,9 @@
+1.2.0-alpha
+===============================
+- Added SurveymonkeyResponse
+- Added SurveymonkeyUser
+- Added express middleware
+
 1.1.9-alpha
 ===============================
 - First release

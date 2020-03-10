@@ -1,7 +1,7 @@
 {
   "name": "@prisma-cms/surveymonkey-module",
   "description": "Surveymonkey module for @prisma-cms/server",
-  "version": "1.1.9-alpha",
+  "version": "1.2.0-alpha",
   "main": "src/",
   "files": [
     "src"

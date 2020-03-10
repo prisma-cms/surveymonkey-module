@@ -4,12 +4,10 @@ import Debug from "debug";
 import PrismaModule from "@prisma-cms/prisma-module";
 import PrismaProcessor from "@prisma-cms/prisma-processor";
 import { request } from "../../";
+import { capitalizeFirstLetter } from "../../helpers";
 
 const debug = Debug('surveymonkey_module:import');
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 export class SurveymonkeyImportProcessor extends PrismaProcessor {
 
@@ -80,9 +78,6 @@ export class SurveymonkeyImportProcessor extends PrismaProcessor {
 
       const {
         id: externalKey,
-        title: name,
-        nickname,
-        href,
       } = item;
 
       const where = {
@@ -96,12 +91,27 @@ export class SurveymonkeyImportProcessor extends PrismaProcessor {
 
       debug('surveysProcessor survey', survey);
 
+      /**
+       * Получаем детальную информацию по опроснику
+       */
+
+      const surveyDetails = await request(`/surveys/${externalKey}`);
+
+      debug('surveysProcessor surveyDetails', surveyDetails);
+
+      const {
+        title: name,
+        nickname,
+        href,
+        custom_variables,
+      } = surveyDetails;
 
       const data = {
         externalKey,
         name,
         nickname,
         href,
+        custom_variables,
         // Collectors,
       };
 

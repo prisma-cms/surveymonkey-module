@@ -3,6 +3,8 @@ type SurveymonkeySurvey {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+  date_created: DateTime
+  date_modified: DateTime
 
   """
     Внешний ключ
@@ -12,6 +14,8 @@ type SurveymonkeySurvey {
   name: String
   nickname: String
   href: String
+
+  custom_variables: Json
 
   # language: String
   # folder_id: ID
@@ -24,4 +28,5 @@ type SurveymonkeySurvey {
 
   Collectors: [SurveymonkeyCollector!]! @relation(onDelete: CASCADE)
   Webhooks: [SurveymonkeySurveyWebhook!]! @relation(name: "SurveymonkeySurveyWebhooks" onDelete: CASCADE)
+  Responses: [SurveymonkeyResponse!]! @relation(onDelete: CASCADE)
 }

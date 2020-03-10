@@ -1,0 +1,19 @@
+
+type SurveymonkeyUser {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+
+  """
+    Внешний ключ
+  """
+  externalKey: ID @unique
+
+  first_name: String
+
+  last_name: String
+
+  email_address: String
+
+  Responses: [SurveymonkeyResponse!]! @relation(onDelete: CASCADE)
+}

@@ -1,0 +1,82 @@
+
+type SurveymonkeyResponse {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  date_created: DateTime
+  date_modified: DateTime
+
+  """
+    Внешний ключ
+  """
+  externalKey: ID @unique
+
+  """ID of the collector the response was taken for"""
+  collector_id: ID
+
+  """ID of the recipient (only for email collectors)"""
+  recipient_id: ID
+
+  """Total time in seconds spent on the survey"""
+  total_time: Int
+
+  """Custom value associated with a response"""
+  custom_value: String
+
+  """Weblink to the survey taking page to edit the response"""
+  edit_url: String
+
+  """Weblink to the analyze page to view the response"""
+  analyze_url: String
+
+  """IP Address the response was taken from"""
+  ip_address: String
+
+  """Values to any available custom variables in the survey"""
+  custom_variables: Json
+
+  """Logic path taken during the survey"""
+  logic_path: Json
+
+  """Other associated metadata or custom values"""
+  metadata: Json
+
+  """Status of the response"""
+  response_status: SurveymonkeyResponseStatus
+
+  """The order in which the pages were responded to"""
+  page_path: [String!]! @scalarList(strategy: RELATION)
+
+  """The collection mode of the response"""
+  collection_mode: SurveymonkeyResponseCollectionMode
+
+  href: String
+  respondent_id: ID
+
+  Survey: SurveymonkeySurvey
+  Collector: SurveymonkeyCollector
+
+  SurveymonkeyUser: SurveymonkeyUser
+  
+  # Делаем связку именно здесь, а не через манки-пользователя,
+  # потому что иначе структура и логика сильно усложнится,
+  # так как в том случае связь МанкиЮзер-Юзер придется делать
+  # многие-ко-многим (ибо мы не можем четко обеспечить авторизованность пользователей).
+  # Вкупе с очень небольшой полезностью такая сложность будет неоправдана.
+  User: User
+}
+
+enum SurveymonkeyResponseStatus {
+  Completed
+  Partial
+  Overquota
+  Disqualified
+}
+
+enum SurveymonkeyResponseCollectionMode {
+  Default
+  Preview
+  Data_entry
+  Survey_preview
+  Edit
+}

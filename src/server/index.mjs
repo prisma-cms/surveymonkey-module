@@ -6,9 +6,8 @@ import {
   PrismaCmsServer,
 } from '@prisma-cms/server'
 
-import bodyParser from 'body-parser';
-
 import { CoreModuleCustom } from './scripts/deploy/schema.mjs'
+import { CreateRouter } from '../';
 
 
 dotenv.config();
@@ -30,30 +29,10 @@ class PrismaCmsServerCustom extends PrismaCmsServer {
 
     const app = server.server;
 
-
-    app.express.use('/surveys', bodyParser.json({
-      type: 'application/vnd.surveymonkey.response.v1+json',
+    app.express.use('/surveys', CreateRouter({
+      server,
+      // webhookResponseCompleted: '/',
     }));
-
-    app.use('/surveys', (req, res, next) => {
-
-      console.log('surveys headers', req.headers);
-      console.log('surveys body', req.body);
-
-      // next();
-
-      res.status(200).end('sdfdsf');
-    });
-
-    // app.use('/surveys/**', (req, res, next) => {
-
-    //   console.log('surveys 2 headers', req.headers);
-    //   console.log('surveys 2 body', req.body);
-
-    //   // next();
-
-    //   res.status(200).end('sdfdsf');
-    // });
 
     return server;
   }

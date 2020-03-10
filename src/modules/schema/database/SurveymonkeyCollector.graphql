@@ -19,6 +19,7 @@ type SurveymonkeyCollector {
   type: SurveymonkeyCollectorType!
   
   Survey: SurveymonkeySurvey!
+  Responses: [SurveymonkeyResponse!]! @relation(onDelete: CASCADE)
 }
 
 enum SurveymonkeyCollectorStatus {
