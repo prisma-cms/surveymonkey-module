@@ -83,6 +83,7 @@ export const createResponse = async (args, ctx) => {
   let Collector;
   let SurveymonkeyUser;
   let User;
+  let points;
 
   /**
    * Collect editional data
@@ -116,6 +117,18 @@ export const createResponse = async (args, ctx) => {
       .catch(console.error);
 
     if (survey) {
+
+      const {
+        points: surveyPoints,
+      } = survey;
+
+      /**
+       * Фиксируем начисляемые за прохождение очки
+       */
+      if (surveyPoints) {
+        points = surveyPoints;
+      }
+
       Survey = {
         connect: {
           id: survey.id,
@@ -202,6 +215,7 @@ export const createResponse = async (args, ctx) => {
     date_created,
     href,
     respondent_id,
+    points,
     Survey,
     Collector,
     SurveymonkeyUser,

@@ -1,3 +1,8 @@
+1.2.1-beta
+===============================
+- Added Response points
+- Added SurveymonkeyResponseModule
+
 1.2.0-alpha
 ===============================
 - Added SurveymonkeyResponse

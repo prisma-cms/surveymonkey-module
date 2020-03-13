@@ -17,12 +17,17 @@ import SurveymonkeyCollectorModule, {
   SurveymonkeyCollectorProcessor,
 } from './modules/SurveymonkeyCollector'
 
+import SurveymonkeyResponseModule, {
+  SurveymonkeyResponseProcessor,
+} from './modules/SurveymonkeyResponse'
+
 const debug = Debug('surveymonkey_module:core');
 
 export const modules = [
   SurveymonkeySurveyModule,
   SurveymonkeyImportModule,
   SurveymonkeyCollectorModule,
+  SurveymonkeyResponseModule,
 ]
 
 export {
@@ -37,6 +42,9 @@ export {
 
   SurveymonkeyCollectorModule,
   SurveymonkeyCollectorProcessor,
+
+  SurveymonkeyResponseModule,
+  SurveymonkeyResponseProcessor,
 
 }
 

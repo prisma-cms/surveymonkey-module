@@ -29,4 +29,7 @@ type SurveymonkeySurvey {
   Collectors: [SurveymonkeyCollector!]! @relation(onDelete: CASCADE)
   Webhooks: [SurveymonkeySurveyWebhook!]! @relation(name: "SurveymonkeySurveyWebhooks" onDelete: CASCADE)
   Responses: [SurveymonkeyResponse!]! @relation(onDelete: CASCADE)
+
+  """Количество начисляемых баллов за происхождение опроса"""
+  points: Int @default(value: 0)
 }
